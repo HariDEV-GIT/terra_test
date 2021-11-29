@@ -14,13 +14,13 @@ pipeline {
                 script {
                     def fmtStatus = sh "terraform fmt -list=true -write=false -diff=true -check=true"
                     if (fmtStatus == 0) {
-                        echo "Format is Okayt"
+                        echo "Format is Okay"
                     } 
                     else {
                         stage('Terraform Format Failed') {
                            script {
                                 def Status = sh "terraform fmt -list=true -write=false -diff=true -check=true"
-                                if (Status <0) { 
+                                if (Status ==0) { 
                                     echo "Code Format Failed"
                                 }
                            }
