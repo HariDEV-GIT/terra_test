@@ -13,6 +13,7 @@ pipeline {
             steps {
               dir('/var/lib/jenkins/workspace/test build') {
                 sh 'terraform fmt'
+                sh 'cat main.tf'
               }
             }
         }
