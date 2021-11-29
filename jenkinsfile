@@ -19,7 +19,7 @@ pipeline {
                     else {
                         stage('Terraform Format Failed') {
                            script {
-                                def Status = sh "terraform fmt -list=true -write=false -diff=true -check=true"
+                                def Status = sh "terraform fmt -list=true -write=false -diff=false -check=true"
                                 if (Status ==0) { 
                                     echo "Code Format Failed"
                                 }
