@@ -11,13 +11,8 @@ pipeline {
 	      }
     stage('Terraform Code Clean') {
             steps {
-                sh '''def fmtStatus = sh "terraform fmt -list=true -write=false -diff=true -check=true"
-		      if (fmtStatus == 0) {
-  			echo "All correct"
-			} 
-		      else {
-  			echo "Changes necessary"
-		      }'''
+                sh 'cd /var/lib/jenkins/workspace/test build'
+     		sh 'terraform fmt'
             }
         }	     
     }
