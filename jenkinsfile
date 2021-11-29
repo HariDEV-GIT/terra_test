@@ -1,13 +1,19 @@
 pipeline {
-    agent any
+    agent none
     options {
         disableConcurrentBuilds()
+    } 
+    stages {
+        stage('SCM Checkout') {
+          steps {
+                git 'https://github.com/HariDEV-GIT/terra_test.git'
+          }
+        }
+        stage('Terraform Code Clean') {
+            steps {
+                sh 'cd /var/lib/jenkins/workspace/test build'
+                sh 'terraform fmt
+            }
+        }
     }
-    stage('SCM Checkout') {
-       git 'https://github.com/HariDEV-GIT/terra_test.git'
-    }
-    stage('Terraform Code Clean') {
-       sh 'cd /var/lib/jenkins/workspace/test build'
-       sh 'terraform fmt'
-    }	     
 }
