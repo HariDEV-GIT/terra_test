@@ -11,8 +11,9 @@ pipeline {
         }
         stage('Terraform Code Clean') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/test build'
+              dir('/var/lib/jenkins/workspace/test build') {
                 sh 'terraform fmt'
+              }
             }
         }
     }
