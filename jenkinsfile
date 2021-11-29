@@ -9,12 +9,18 @@ pipeline {
                 git 'https://github.com/HariDEV-GIT/terra_test.git'
           }
         }
-        stage('Terraform Code Clean') {
+    }
+    stage('Terraform Format Check') {
             steps {
-              dir('/var/lib/jenkins/workspace/test build') {
-                sh 'terraform fmt'
-                sh 'cat main.tf'
-              }
+                script {
+                    def fmtStatus = sh "terraform fmt -list=true -write=false -diff=true -check=true"
+                    if (fmtStatus == 0) {
+                        echo "Format is Okayt"
+                    } 
+                    else {
+                        echo "Code Format Failed"
+                    }
+                }
             }
         }
     }
