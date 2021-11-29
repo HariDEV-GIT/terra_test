@@ -17,7 +17,9 @@ pipeline {
                         echo "Format is Okayt"
                     } 
                     else {
-                        echo "Code Format Failed"
+                        steps{
+                            echo "Code Format Failed"
+                        }
                     }
                 }
             }
