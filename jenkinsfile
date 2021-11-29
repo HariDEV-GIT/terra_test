@@ -1,11 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Terraform') {
-          steps {
               parallel {
-		stage("Terraform Format Check"){
-		}
 		stages{
 	             stage("Terraform") {
 			 steps {
@@ -25,9 +21,6 @@ pipeline {
                                }	
 			 }
 		     }
-		}
-       	      }
-          }
-        }
+              }
      }
 }
