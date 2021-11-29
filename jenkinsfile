@@ -18,9 +18,7 @@ pipeline {
                     } 
                     else {
                         stage('Terraform Format Failed') {
-                            steps {
                                 echo "Code Format Failed"
-                            }
                         }
                     }
                 }
