@@ -17,11 +17,7 @@ pipeline {
                         echo "Format is Okayt"
                     } 
                     else {
-                        stage('Terraform Build Failed'){
-                            steps{
-                                echo "Code Format Failed"
-                            }
-                        }    
+                        cho "Code Format Failed"   
                     }
                 }
             }
